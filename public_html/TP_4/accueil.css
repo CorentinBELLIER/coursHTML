@@ -1,0 +1,16 @@
+h2 {
+    font-size: 1.5em;
+    background: linear-gradient(to right, #458bc5, #76a1cf);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.button{
+    margin-top: 3%;
+    background: black;
+    padding: 1%;
+    border-radius: 20%;
+    color: white;
+    text-decoration: none;
+}

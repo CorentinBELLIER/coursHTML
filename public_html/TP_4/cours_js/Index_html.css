@@ -1,0 +1,35 @@
+.header {
+    font-weight: normal;
+    margin-bottom: 0.5em;
+    color: #333;
+    font-size: 1.5em;
+    background: linear-gradient(to right, #458bc5, #76a1cf);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 2%;
+}
+
+.flexbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.accueil{
+    margin-top: 2%;
+}
+
+.police{
+    color: white;
+    text-decoration: none;
+}
+
+.button{
+    margin-top: 3%;
+    background: black;
+    padding: 1%;
+    border-radius: 20%;
+    color: white;
+    text-decoration: none;
+}
