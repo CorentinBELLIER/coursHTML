@@ -1,0 +1,25 @@
+h2 {
+    font-size: 1.5em;
+    background: linear-gradient(to right, #458bc5, #76a1cf);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+th {
+    background-color: lightgray;
+}
+img {
+    width: 50px;
+    cursor: pointer;
+}
