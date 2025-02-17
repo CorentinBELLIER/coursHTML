@@ -6,6 +6,25 @@ h2 {
     border-radius: 5px;
 }
 
+.tablevac {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: center;
+}
+.thvac, .tdvac {
+    border: 1px solid black;
+    padding: 10px;
+}
+.thvac {
+    background-color: #888;
+    color: #000;
+}
+.zone-a { background-color: #f9e6b3; }
+.zone-b { background-color: #cce5ff; }
+.zone-c { background-color: #e6f4c7; }
+.category { background-color: #f2f2f2; font-weight: bold; text-align: left; }
+
 table {
     width: 80%;
     border-collapse: collapse;
