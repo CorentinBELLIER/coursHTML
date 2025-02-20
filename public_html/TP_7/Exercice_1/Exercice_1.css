@@ -1,0 +1,33 @@
+.entete {
+    border: 1px solid black;
+    padding: 10px;
+}
+.menu1, .menu2 {
+    border: 1px solid blue;
+    padding: 10px;
+    display: inline-block;
+}
+.recherche {
+    float: right;
+}
+.cadreLogoPub {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.logo, .emploi {
+    border: 1px solid gray;
+    padding: 10px;
+}
+.main {
+    background-color: cadetblue;
+    height: 400px;
+    margin: 10px 0;
+    text-align: center;
+    padding-top: 20px;
+}
+.pdp {
+    background-color: chartreuse;
+    text-align: center;
+    padding: 10px;
+}

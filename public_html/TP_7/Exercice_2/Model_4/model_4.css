@@ -1,0 +1,36 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+.top {
+    background-color: teal;
+    height: 15%;
+    text-align: center;
+}
+.menu {
+    background-color: purple;
+    height: 5%;
+    text-align: center;
+}
+.middle {
+    background-color: gold;
+    flex: 1;
+    margin: 0;
+    text-align: center;
+}
+.bottom {
+    background-color: teal;
+    height: 10%;
+    text-align: center;
+}
