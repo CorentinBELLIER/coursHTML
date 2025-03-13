@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Calcul du devis béton</title>
+</head>
+<body>
+  <script>
+    // Données d'entrée
+    let surface = parseFloat(prompt("Entrez la surface en m² de la dalle :"));
+    let epaisseur = parseFloat(prompt("Entrez l'épaisseur de la dalle en cm :"));
+
+    // Conversion de l'épaisseur en m
+    epaisseur = epaisseur / 100;
+
+    // Calcul du volume en m³
+    let volume = surface * epaisseur;
+    
+    // Calcul de la quantité de ciment nécessaire (350kg/m³)
+    let ciment = volume * 350;
+
+    // Calcul du nombre de camions nécessaires (9m³ par camion)
+    let camions = Math.ceil(volume / 9);
+
+    // Calcul du prix
+    let prixM3 = 91;
+    let prixTransport = 140;
+    let tarifHT = volume * prixM3 + camions * prixTransport;
+    let tarifTTC = tarifHT * 1.2; // Calcul de la TVA à 20%
+
+    // Affichage du devis
+    document.write("<h3>Devis béton</h3>");
+    document.write("<p>Surface de la dalle : " + surface + " m²</p>");
+    document.write("<p>Epaisseur de la dalle : " + epaisseur * 100 + " cm</p>");
+    document.write("<p>Volume de béton nécessaire : " + volume + " m³</p>");
+    document.write("<p>Ciment nécessaire : " + ciment + " kg</p>");
+    document.write("<p>Nombre de camions nécessaires : " + camions + "</p>");
+    document.write("<p>Tarif HT : " + tarifHT + " €</p>");
+    document.write("<p>Tarif TTC (avec TVA à 20%) : " + tarifTTC + " €</p>");
+  </script>
+</body>
+</html>
+

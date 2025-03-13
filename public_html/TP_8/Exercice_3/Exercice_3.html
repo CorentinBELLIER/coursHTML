@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Calcul de la surface avec validation</title>
+</head>
+<body>
+  <script>
+    let X, Y;
+    
+    do {
+      X = parseInt(prompt("Entrez la longueur du rectangle (X) :"));
+    } while (isNaN(X) || X <= 0); // Validation : X doit être un nombre positif
+    
+    do {
+      Y = parseInt(prompt("Entrez la largeur du rectangle (Y) :"));
+    } while (isNaN(Y) || Y <= 0); // Validation : Y doit être un nombre positif
+    
+    let surface = X * Y;
+    console.log("La surface du rectangle est : " + surface);
+    alert("La surface du rectangle est : " + surface);
+  </script>
+</body>
+</html>

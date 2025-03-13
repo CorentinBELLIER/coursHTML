@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Calcul de la surface avec confirmation</title>
+</head>
+<body>
+  <script>
+    let X = parseInt(prompt("Entrez la longueur du rectangle (X) :"));
+    let Y = parseInt(prompt("Entrez la largeur du rectangle (Y) :"));
+    
+    if (confirm("Souhaitez-vous utiliser ces valeurs ?")) {
+      let surface = X * Y;
+      console.log("La surface du rectangle est : " + surface);
+      alert("La surface du rectangle est : " + surface);
+    } else {
+      // Demander à nouveau la saisie si la confirmation est refusée
+      location.reload(); // Recharge la page pour redemander les valeurs
+    }
+  </script>
+</body>
+</html>
