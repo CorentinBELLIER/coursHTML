@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devis Béton - Lafarge</title>
+    <link href="Exercice_devis.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Devis Béton</h1>
+            <p>Proposé par Lafarge Cimenterie</p>
+        </div>
+
+        <div class="devis-container">
+            <h2>Devis pour la dalle de béton</h2>
+
+            <!-- Affichage des informations du client -->
+            <div class="client-info">
+                <p><strong>Nom du client:</strong> <span id="clientName"></span></p>
+                <p><strong>Adresse du client:</strong> <span id="clientAddress"></span></p>
+                <p><strong>Numéro de téléphone:</strong> <span id="clientPhone"></span></p>
+                <p><strong>Adresse email:</strong> <span id="clientEmail"></span></p>
+                <div class="devis-date">
+                    <p><strong>Date du devis:</strong> <span id="devisDateDisplay"></span></p>
+                </div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Quantité</th>
+                        <th>Prix unitaire (€)</th>
+                        <th>Total (€)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Béton (350 kg/m³)</td>
+                        <td id="volume"></td>
+                        <td>91€</td>
+                        <td id="prixBéton"></td>
+                    </tr>
+                    <tr>
+                        <td>Transport (par camion)</td>
+                        <td id="camions"></td>
+                        <td>140€</td>
+                        <td id="prixTransport"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="totals">
+                <p><span>Prix Total HT:</span> <span id="totalHT"></span> €</p>
+                <p><span>Prix Total TTC:</span> <span id="totalTTC"></span> €</p>
+            </div>
+
+            <div class="validity">
+                <p><strong>Ce devis est valable pendant 1 mois à compter de la date.</strong></p>
+            </div>
+
+            <div class="signature">
+                <p><strong>Signature du client:</strong> ______________________</p>
+            </div>
+
+            <div class="terms-conditions">
+                <p><small>
+                    <strong>Conditions Générales de Vente :</strong><br>
+                    1. Le devis est basé sur les informations fournies par le client à la date de la commande. Toute modification dans les spécifications peut entraîner un ajustement du prix.<br>
+                    2. Le devis est valable pendant 1 mois à compter de la date d'émission. Après cette période, le devis sera sujet à réévaluation en fonction des tarifs en vigueur.<br>
+                    3. Le paiement est dû à la livraison ou selon les conditions convenues entre le client et Lafarge Cimenterie.<br>
+                    4. Le client est responsable de la préparation du site de construction, y compris l'accès pour la livraison du béton.<br>
+                    5. En cas de non-paiement à la date convenue, des frais supplémentaires pourront être appliqués, conformément à la législation en vigueur.<br>
+                    6. Lafarge Cimenterie ne pourra être tenue responsable des retards ou des imprévus causés par des conditions météorologiques défavorables ou des problèmes logistiques externes.<br>
+                    7. Toute réclamation relative à la qualité du produit ou du service doit être adressée dans un délai de 7 jours suivant la livraison du béton.<br>
+                    8. Les produits sont garantis conformes aux normes en vigueur, mais la responsabilité de Lafarge Cimenterie est limitée au remplacement ou à l'ajustement des produits défectueux.<br>
+                    9. Le client accepte que des photos de la livraison puissent être utilisées à des fins marketing ou de vérification de qualité.<br>
+                    10. En cas de litige, les tribunaux compétents seront ceux de la région où se situe la commande, sous réserve des règles de compétence légale.
+                </small></p>
+            </div>
+
+            <button class="btn-print" onclick="window.print()">Imprimer le devis</button>
+        </div>
+    </div>
+
+    <script>
+           // Récupérer les paramètres d'URL
+    const params = new URLSearchParams(window.location.search);
+    const clientName = params.get('clientName');
+    const clientAddress = params.get('clientAddress');
+    const clientPhone = params.get('clientPhone');
+    const clientEmail = params.get('clientEmail');
+    const surface = parseFloat(params.get('surface'));
+    const epaisseur = parseFloat(params.get('epaisseur'));
+    const devisDate = params.get('devisDate'); // Date du devis
+
+    if (isNaN(surface) || isNaN(epaisseur) || surface <= 0 || epaisseur <= 0) {
+        alert("Des données sont manquantes ou incorrectes.");
+    } else {
+        // Calculs
+        const volume = surface * (epaisseur / 100);  // Conversion de l'épaisseur en mètres
+        const ciment = volume * 350;  // kg de ciment
+        const cimentTonnes = ciment / 1000;  // En tonnes
+        const camions = Math.ceil(volume / 9);  // Nombre de camions nécessaires
+        const prixBéton = volume * 91;  // Prix du béton HT
+        const prixTransport = camions * 140;  // Prix du transport
+        const prixTotalHT = prixBéton + prixTransport;  // Total HT
+        const prixTotalTTC = prixTotalHT * 1.20;  // Total TTC avec TVA de 20%
+
+        // Affichage des informations du client
+        document.getElementById("clientName").textContent = clientName;
+        document.getElementById("clientAddress").textContent = clientAddress;
+        document.getElementById("clientPhone").textContent = clientPhone;
+        document.getElementById("clientEmail").textContent = clientEmail;
+
+        // Remplir les informations du devis
+        document.getElementById("volume").textContent = volume.toFixed(2) + " m³";
+        document.getElementById("prixBéton").textContent = prixBéton.toFixed(2);
+        document.getElementById("camions").textContent = camions;
+        document.getElementById("prixTransport").textContent = prixTransport.toFixed(2);
+        document.getElementById("totalHT").textContent = prixTotalHT.toFixed(2);
+        document.getElementById("totalTTC").textContent = prixTotalTTC.toFixed(2);
+
+        // Afficher la date du devis
+        document.getElementById("devisDateDisplay").textContent = devisDate;
+    }
+    </script>
+</body>
+</html>

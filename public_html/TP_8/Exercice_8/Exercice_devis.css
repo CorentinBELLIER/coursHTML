@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.header {
+    text-align: center;
+    border-bottom: 2px solid #333;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.header img {
+    max-width: 150px;
+}
+.header h1 {
+    font-size: 36px;
+    color: #008cba;
+    margin-top: 10px;
+}
+.header p {
+    font-size: 18px;
+    color: #555;
+}
+.devis-container {
+    display: block;
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+.devis-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.devis-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+.devis-container th, .devis-container td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+.devis-container th {
+    background-color: #008cba;
+    color: white;
+}
+.devis-container .totals {
+    font-size: 18px;
+    margin-top: 20px;
+}
+.devis-container .totals span {
+    font-weight: bold;
+}
+.devis-container .client-info {
+    margin-bottom: 20px;
+}
+.devis-container .client-info p {
+    font-size: 16px;
+}
+.btn-print {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #008cba;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+.btn-print:hover {
+    background-color: #006f8e;
+}
+@media print {
+    body {
+        font-size: 12px;
+        color: #000;
+    }
+    .container {
+        width: 100%;
+        padding: 10px;
+        box-shadow: none;
+    }
+    .btn-print {
+        display: none;
+    }
+}
+
+/* Style pour la date du devis */
+.devis-date {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+/* Style pour la mention de validité */
+.validity {
+    margin-top: 20px;
+    font-size: 16px;
+    font-style: italic;
+}
+
+/* Style pour la section de signature */
+.signature {
+    margin-top: 40px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Style pour les termes et conditions */
+.terms-conditions {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.terms-conditions small {
+    font-size: 10px;
+    color: #999;
+}
