@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendrier</title>
+</head>
+<body>
+    <div id="calendar"></div>
+    <script>
+        function calendrier(startDay, month, year) {
+            let daysInMonth = new Date(year, month, 0).getDate();
+            let html = '<table border="1">';
+            html += '<tr>' + ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'].map(d => `<th>${d}</th>`).join('') + '</tr><tr>';
+            for (let i = 1; i < startDay; i++) html += '<td></td>';
+            for (let d = 1; d <= daysInMonth; d++) {
+                html += `<td>${d}</td>`;
+                if ((d + startDay - 1) % 7 === 0) html += '</tr><tr>';
+            }
+            html += '</tr></table>';
+            document.getElementById('calendar').innerHTML = html;
+        }
+        calendrier(6, 3, 2025);
+    </script>
+</body>
+</html>

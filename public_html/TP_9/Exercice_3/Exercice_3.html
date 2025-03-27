@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finale Ligue des Champions 2025</title>
+    <link href="Exercice3.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div class="countdown-container">
+        <h1>Finale Ligue des Champions 2025</h1>
+        <p>Le compte à rebours avant le grand match :</p>
+        <div class="countdown">
+            <div class="time-box"><span id="days"></span> Jours</div>
+            <div class="time-box"><span id="hours"></span> Heures</div>
+            <div class="time-box"><span id="minutes"></span> Minutes</div>
+            <div class="time-box"><span id="seconds"></span> Secondes</div>
+        </div>
+    </div>
+    <script>
+        function updateCountdown() {
+            let eventDate = new Date("2025-05-31T21:00:00").getTime();
+            let now = new Date().getTime();
+            let distance = eventDate - now;
+
+            if (distance < 0) {
+                document.querySelector('.countdown-container').innerHTML = "<h1>La Finale a commencé !</h1>";
+                return;
+            }
+
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>

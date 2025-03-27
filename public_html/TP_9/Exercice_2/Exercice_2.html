@@ -1,0 +1,33 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire de visite</title>
+</head>
+<body>
+    <form id="visitForm">
+        <input type="text" id="nom" placeholder="Nom" required>
+        <input type="text" id="prenom" placeholder="Prénom" required>
+        <select id="etude">
+            <option>Bac pro</option>
+            <option>STI</option>
+            <option>STMG</option>
+            <option>Général</option>
+        </select>
+        <button type="submit">Valider</button>
+    </form>
+    <table border="1">
+        <thead><tr><th>Nom</th><th>Prénom</th><th>Étude</th></tr></thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+    <script>
+        document.getElementById('visitForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let table = document.getElementById('tableBody');
+            let row = table.insertRow();
+            row.insertCell(0).innerText = document.getElementById('nom').value;
+            row.insertCell(1).innerText = document.getElementById('prenom').value;
+            row.insertCell(2).innerText = document.getElementById('etude').value;
+        });
+    </script>
+</body>
+</html>

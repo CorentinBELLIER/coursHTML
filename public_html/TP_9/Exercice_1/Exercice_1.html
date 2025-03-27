@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Définition</title>
+    <link href="Exercice1.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <p> <span class="highlight" title="Définition Lorem ipsum" onclick="showPopup()">Lorem ipsum</span> dolor sit amet.</p>
+    
+    <div id="popup" class="popup">
+        <h2>Lorem <span class="close-btn" onclick="closePopup()">&times;</span></h2>
+        <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+        <img src="image/elephan.png" alt="Exemple d'image">
+    </div>
+
+    <script>
+        function showPopup() {
+            document.getElementById("popup").style.display = "block";
+        }
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+</body>
+</html>
